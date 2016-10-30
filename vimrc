@@ -43,7 +43,7 @@ set fileencodings=ucs-bom,utf-8,chinese,cp936
 "快捷键leader设置
 let mapleader=";"
 set mouse=a
-"VIM通用快捷键映射
+"VIM通用快捷键映射,Linux中F5无法使用
 map <Leader>5 :w<cr>:!python3 %<cr>
 map <Leader>4 :w<cr>:!python %<cr>
 "多窗口ctrl+hjkl直接切换
