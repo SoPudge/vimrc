@@ -215,4 +215,6 @@ map 1 :MBEbp<cr>
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
-
+if exists('$TMUX')
+      set term=screen-256color
+  endif
