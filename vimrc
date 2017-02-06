@@ -35,6 +35,14 @@ set backspace=2
 "  filetype plugin indent on
 "endif
 
+"操作系统识别
+function! MySys()
+    if has("win16") || has("win32") || has("win64") || has("win95")
+        return "windows"
+    elseif has("unix")
+        return "linux"
+    endif
+endfunction
 "VIM文件编码设置
 set encoding=utf-8
 set termencoding=utf-8
@@ -77,7 +85,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
+if MySys == "linux"
+    Plugin 'Valloric/YouCompleteMe'
+endif
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
@@ -159,7 +169,7 @@ set foldmethod=syntax
 set nofoldenable
 
 "判断ctags位置
-if(has("win32") || has("win95") || has("win64") || has("win16"))
+if MySys == "windows"
     let Tlist_Ctags_Cmd = 'ctags'
 else
     let Tlist_Ctags_Cmd = '/usr/bin/ctags'
@@ -217,4 +227,4 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 if exists('$TMUX')
       set term=screen-256color
-  endif
+endif
