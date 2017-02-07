@@ -106,8 +106,10 @@ set background=dark
 colorscheme molokai
 "colorscheme phd
 "colorscheme default
+"根据操作系统设定对应的字体和行列，line代表行数，columns代表列数
 if MySys() == "windows"
     set guifont =Monaco:h12:cANSI
+    set lines=28 columns=110
 else
     set guifont =Monaco:h16:cANSI
 endif
