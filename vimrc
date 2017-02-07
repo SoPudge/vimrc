@@ -85,7 +85,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-if MySys == "linux"
+if MySys() == "linux"
     Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'derekwyatt/vim-protodef'
@@ -106,8 +106,11 @@ set background=dark
 colorscheme molokai
 "colorscheme phd
 "colorscheme default
-"if(has("win32") || has("win95") || has("win64") || has("win16"))
-set guifont =Monaco:h16:cANSI
+if MySys() == "windows"
+    set guifont =Monaco:h12:cANSI
+else
+    set guifont =Monaco:h16:cANSI
+endif
 
 " 禁止光标闪烁
 set gcr=a:block-blinkon0
@@ -169,7 +172,7 @@ set foldmethod=syntax
 set nofoldenable
 
 "判断ctags位置
-if MySys == "windows"
+if MySys() == "windows"
     let Tlist_Ctags_Cmd = 'ctags'
 else
     let Tlist_Ctags_Cmd = '/usr/bin/ctags'
