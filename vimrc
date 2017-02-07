@@ -55,10 +55,10 @@ set mouse=a
 map <Leader>5 :w<cr>:!python3 %<cr>
 map <Leader>4 :w<cr>:!python %<cr>
 "多窗口ctrl+hjkl直接切换
-map <C-J> <C-W>j
-map <C-H> <C-W>k 
-map <C-H> <C-W>h
-map <C-L> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k 
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 " vundle 环境设置
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
