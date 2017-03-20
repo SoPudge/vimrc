@@ -199,7 +199,7 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 
 "YCM配置
 nnoremap gl :YcmCompleter GoToDeclaration
-nnoremap gf :YcmCompleter GoToDefinition
+nnoremap gk :YcmCompleter GoToDefinition
 "nnoremap gg :YcmCompleter GoToDefinitionElseDeclaration
 "补全完成之后preview窗口自动消失
 let g:SimpylFold_docstring_preview=1
