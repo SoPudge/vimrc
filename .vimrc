@@ -191,7 +191,7 @@ let g:tagbar_compact=1
 "模板补全，利用ultisnips插件
 "设置运行目录
 "let g:UltiSnipsSnippetsDir
-"let g:UltiSnipsSnippetDirectories=["myultisnips"]
+let g:UltiSnipsSnippetDirectories=["myultisnips"]
 "UltiSnips 的 tab 键与 YCM 冲突，重新设定
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
