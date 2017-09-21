@@ -54,6 +54,9 @@ set mouse=a
 "VIM通用快捷键映射,Linux中F5无法使用
 map <Leader>5 :w<cr>:!python3 %<cr>
 map <Leader>4 :w<cr>:!python %<cr>
+map <Leader>3 :w<cr>:!javac -encoding utf8 % && echo 'complie complete'<cr>
+map <Leader>33 :w<cr>:!java %:r<cr>
+map <Leader>333 :w<cr>:!javac -encoding utf8 % && java %:r<cr>
 "多窗口ctrl+hjkl直接切换
 map <C-j> <C-W>j
 map <C-k> <C-W>k 
