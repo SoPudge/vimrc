@@ -73,6 +73,8 @@ nmap <Leader>re :so ~/.vim/vimrc<CR>
 
 "vim-plugin 插件定义开始
 call plug#begin('~/.vim/plugged')
+"如果操作系统为windows，放置于users/vimfiles/autoload文件夹，并使用下列调用
+"call plug#begin('~/vimfiles/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'skywind3000/asyncrun.vim'
@@ -89,7 +91,7 @@ Plug 'sjl/gundo.vim'
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 "vim-plugin 插件定义结束
