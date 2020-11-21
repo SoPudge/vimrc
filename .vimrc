@@ -72,9 +72,14 @@ map <C-l> <C-W>l
 nmap <Leader>re :so ~/.vim/vimrc<CR>
 
 "vim-plugin 插件定义开始
-call plug#begin('~/.vim/plugged')
+"按照不同的操作系统调用vim-plug文件
+if MySys() == "windows"
 "如果操作系统为windows，放置于users/vimfiles/autoload文件夹，并使用下列调用
+    call plug#begin('~/vimfiles/plugged')
 "call plug#begin('~/vimfiles/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'skywind3000/asyncrun.vim'
@@ -105,8 +110,7 @@ colorscheme molokai
 "colorscheme default
 "根据操作系统设定对应的字体和行列，line代表行数，columns代表列数
 if MySys() == "windows"
-    "set guifont =Monaco:h12:cANSI
-    set lines=28 columns=110
+    set guifont =Monaco:h12:cANSI
 elseif MySys() == "linux"
     set guifont =Monaco\ Nerd\ Font:h14
 elseif MySys() == "mac"
