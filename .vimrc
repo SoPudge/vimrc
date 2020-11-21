@@ -72,12 +72,9 @@ map <C-l> <C-W>l
 nmap <Leader>re :so ~/.vim/vimrc<CR>
 
 "vim-plugin 插件定义开始
-"按照不同的操作系统调用vim-plug文件
-if MySys() == "windows"
-    call plug#begin('~/vimfiles/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+call plug#begin('~/.vim/plugged')
+"如果操作系统为windows，放置于users/vimfiles/autoload文件夹，并使用下列调用
+"call plug#begin('~/vimfiles/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'skywind3000/asyncrun.vim'
@@ -91,9 +88,9 @@ Plug 'liuchengxu/vista.vim'
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sjl/gundo.vim'
-Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -108,7 +105,8 @@ colorscheme molokai
 "colorscheme default
 "根据操作系统设定对应的字体和行列，line代表行数，columns代表列数
 if MySys() == "windows"
-    set guifont =Monaco:h12:cANSI
+    "set guifont =Monaco:h12:cANSI
+    set lines=28 columns=110
 elseif MySys() == "linux"
     set guifont =Monaco\ Nerd\ Font:h14
 elseif MySys() == "mac"
@@ -357,25 +355,19 @@ let g:airline#extensions#coc#enabled = 0
 "coc end
 
 "第六章工程管理开始
-"使用nerdtree呈现目录树
-nmap <Leader>fl :NERDTreeToggle<CR>
-" 设置NERDTree子窗口宽度
-let NERDTreeWinSize=20
-" 设置NERDTree子窗口位置
-let NERDTreeWinPos="right"
-" 显示隐藏文件
-let NERDTreeShowHidden=1
-" NERDTree 子窗口中不显示冗余帮助信息
-let NERDTreeMinimalUI=1
-" 删除文件时自动删除文件对应 buffer
-let NERDTreeAutoDeleteBuffer=1
-" 只剩一个nerdtree窗口时直接关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"使用explorer作为文档结构树管理方式
+nmap <Leader>fl :CocCommand explorer --position right --width 30<CR>
 
 " buffer 切换快捷键
 map 2 :bn<cr>
 map 1 :bp<cr>
 map 3 :bp \| bd #<cr> 
+
+"Bracey html预览插件配置
+"保存文件时刷新预览
+let g:bracey_refresh_on_save = 1
+nmap <Leader>bp :Bracey<CR>
+nmap <Leader>bn :BraceyStop<CR>
 
 "markdown-preview插件配置
 " set to 1, nvim will open the preview window after entering the markdown buffer
