@@ -370,7 +370,7 @@ map 3 :bp \| bd #<cr>
 "Bracey html预览插件配置
 "保存文件时刷新预览
 let g:bracey_refresh_on_save = 1
-nmap <Leader>bp :Bracey<CR>
+nmap <Leader>bp :cd /<CR>:Bracey<CR>
 nmap <Leader>bn :BraceyStop<CR>
 
 "markdown-preview插件配置
