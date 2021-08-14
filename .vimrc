@@ -115,6 +115,7 @@ elseif MySys() == "linux"
     set guifont =Monaco\ Nerd\ Font:h14
 elseif MySys() == "mac"
     set guifont =Monaco\ Nerd\ Font:h14
+    set lines=35 columns=118
 else
     set guifont =Monaco:h12:cANSI
 endif
