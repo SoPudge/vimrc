@@ -1,3 +1,16 @@
 {
-	"suggest.snippetIndicator": "⭐︎"
+  "explorer.icon.enableNerdfont": true,
+  "suggest.snippetIndicator": "⭐︎",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "html",
+    //"vue",
+    "js"
+  ],
+  //vue设置
+  //禁止vutur语法检查，使用eslint检查
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false
 }
