@@ -519,6 +519,20 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' },'vue':{'left
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
+
+"tmux配置
 if exists('$TMUX')
       set term=screen-256color
 endif
+
+"替换最后一次修改时间
+function! SetLastUpdateTime()
+    let lupartten = '@LastUpdateTime:.*'
+    let row = search(lupartten,'n',10)
+    if row !=0
+        let lutl = getline(row)
+        let lutt = strftime("%Y-%m-%d %H:%M:%S %A")
+        call setline(row,split(lutl,':')[0].": ".lutt)
+    endif
+endfunction
+autocmd BufWritePost * call SetLastUpdateTime()
