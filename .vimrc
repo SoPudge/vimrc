@@ -91,6 +91,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'liuchengxu/vista.vim'
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sjl/gundo.vim'
 Plug 'majutsushi/tagbar'
@@ -111,7 +112,7 @@ colorscheme molokai
 "colorscheme default
 "根据操作系统设定对应的字体和行列，line代表行数，columns代表列数
 if MySys() == "windows"
-    set guifont=Consolas\ NF:h14,Courier_New:h11:cANSI
+    set guifont=Monaco_NFM:h12:cANSI:qDRAFT
 elseif MySys() == "linux"
     set guifont =Monaco\ Nerd\ Font:h14
 elseif MySys() == "mac"
